@@ -1,0 +1,9 @@
+.display-flex{
+  display: flex;
+}
+.flex-80{
+  width: 80%;
+}
+.flex-20{
+  width: 20%;
+}

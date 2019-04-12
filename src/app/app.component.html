@@ -1,0 +1,40 @@
+<div class="display-flex">
+  <div class="flex-80">
+    <h1 id="top">Component Communication Cookbook</h1>
+
+    <a href="#parent-to-child">Pass data from parent to child with input binding ("Heroes")</a><br/>
+    <a href="#countdown">Interact with child component</a>
+    <a href="#mission-control">Connect parent and child through service</a>
+
+    <div id="parent-to-child">
+      <app-hero-parent></app-hero-parent>
+    </div>
+    <br>
+    <div id="countdown">
+      <app-countdown-parent></app-countdown-parent>
+    </div>
+
+    <div id="mission-control">
+      <app-mission-control></app-mission-control>
+    </div>
+    <a href="#top" class="to-top">Back to Top</a>
+    <div>
+      <input #input value="Message">
+      <button (click)="popupService.showAsComponent(input.value)">Show as component</button>
+      <button (click)="popupService.showAsElement(input.value)">Show as element</button>
+    </div>
+  </div>
+  <div class="flex-20">
+    <app-ad-banner [ads]="ads"></app-ad-banner>
+    <h4>Pick a highlight color</h4>
+    <div>
+      <input type="radio" name="colors" (click)="color='lightgreen'">Green
+      <input type="radio" name="colors" (click)="color='yellow'">Yellow
+      <input type="radio" name="colors" (click)="color='cyan'">Cyan
+    </div>
+    <p [appHighlight]="color">Highlight me!</p>
+    <p [appHighlight]="color" defaultColor="violet">Another highlight</p>
+  </div>
+</div>
+
+
