@@ -12,6 +12,7 @@ import {AdItem} from './classes/ad-item'
 })
 export class AppComponent {
   ads: AdItem[]
+  condition = false
   constructor(
     injector: Injector,
     public popupService: PopupService,
