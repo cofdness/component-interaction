@@ -18,7 +18,11 @@ import { AdDirective } from './directives/ad.directive';
 import { AdBannerComponent } from './components/ad-banner/ad-banner.component';
 import { HeroProfileComponent } from './components/hero-profile/hero-profile.component';
 import { HeroJobAdComponent } from './components/hero-job-ad/hero-job-ad.component';
-import { HighlightDirective } from './directives/highlight.directive'
+import { HighlightDirective } from './directives/highlight.directive';
+import { UnlessDirective } from './directives/unless.directive';
+import { HeroAsyncMessageComponent } from './components/hero-async-message/hero-async-message.component';
+import { ProfileEditorComponent } from './components/profile-editor/profile-editor.component'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,12 +40,17 @@ import { HighlightDirective } from './directives/highlight.directive'
     AdBannerComponent,
     HeroProfileComponent,
     HeroJobAdComponent,
-    HighlightDirective
+    HighlightDirective,
+    UnlessDirective,
+    HeroAsyncMessageComponent,
+    ProfileEditorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [PopupService],
   bootstrap: [AppComponent],
