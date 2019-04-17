@@ -22,7 +22,7 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { UnlessDirective } from './directives/unless.directive';
 import { HeroAsyncMessageComponent } from './components/hero-async-message/hero-async-message.component';
 import { ProfileEditorComponent } from './components/profile-editor/profile-editor.component'
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
