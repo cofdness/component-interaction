@@ -22,7 +22,12 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { UnlessDirective } from './directives/unless.directive';
 import { HeroAsyncMessageComponent } from './components/hero-async-message/hero-async-message.component';
 import { ProfileEditorComponent } from './components/profile-editor/profile-editor.component'
-import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HeroFormReactiveComponent } from './components/hero-form-reactive/hero-form-reactive.component';
+import { HeroFormTemplateComponent } from './components/hero-form-template/hero-form-template.component';
+import { IdentityRevealedDirective } from './directives/identity-revealed.directive';
+import { ForbiddenNameDirective } from './directives/forbidden-name.directive';
+import { UniqueAlterEgoValidatorDirective } from './directives/alter-ego.directive'
 
 @NgModule({
   declarations: [
@@ -43,7 +48,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'
     HighlightDirective,
     UnlessDirective,
     HeroAsyncMessageComponent,
-    ProfileEditorComponent
+    ProfileEditorComponent,
+    HeroFormReactiveComponent,
+    HeroFormTemplateComponent,
+    IdentityRevealedDirective,
+    ForbiddenNameDirective,
+    UniqueAlterEgoValidatorDirective
   ],
   imports: [
     BrowserModule,

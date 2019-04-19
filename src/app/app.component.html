@@ -1,5 +1,5 @@
 <div class="display-flex">
-  <div class="flex-80">
+  <div class="flex-40">
     <h1 id="top">Component Communication Cookbook</h1>
 
     <a href="#parent-to-child">Pass data from parent to child with input binding ("Heroes")</a><br/>
@@ -58,6 +58,10 @@
     </ng-template>
 
     <app-hero-async-message></app-hero-async-message>
+  </div>
+  <div class="flex-40">
+    <app-hero-form-template></app-hero-form-template>
+    <app-hero-form-reactive></app-hero-form-reactive>
   </div>
   <div class="flex-20">
     <app-ad-banner [ads]="ads"></app-ad-banner>

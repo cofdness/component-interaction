@@ -6,4 +6,9 @@
 }
 .flex-20{
   width: 20%;
+  padding: 20px;
+}
+.flex-40{
+  width: 40%;
+  padding: 20px;
 }

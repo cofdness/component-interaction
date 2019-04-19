@@ -1,0 +1,48 @@
+<h2>Reactive form</h2>
+<form [formGroup]="heroForm" #formHero="ngForm">
+  <div [hidden]="formHero.submitted">
+    <div class="cross-validation" [class.cross-validation-error]="heroForm.errors?.identityRevealed && (heroForm.touched || heroForm.dirty)">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" class="form-control" formControlName="name">
+        <div *ngIf="name.invalid && (name.touched || name.dirty)" class="alert alert-danger">
+          <div *ngIf="name.errors.required">
+            Name must required.
+          </div>
+          <div *ngIf="name.errors.minlength">
+            Name must at least 4 characters.
+          </div>
+          <div *ngIf="name.errors.forbiddenName">
+            Name can not be bob
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input id="alterEgo" formControlName="alterEgo" class="form-control">
+        <div *ngIf="alterEgo.pending" class="alert alert-info">Validating ...</div>
+        <div *ngIf="alterEgo.errors?.uniqueAlterEgo" class="alert alert-danger">
+          Alter ego is already taken.
+        </div>
+      </div>
+      <div *ngIf="heroForm.errors?.identityRevealed &&(heroForm.touched || heroForm.dirty)" class="cross-validation-error-message alert alert-danger">
+        Alter ego can not match name
+      </div>
+      <div class="form-group">
+        <label for="power">Power</label>
+        <select id="power" class="form-control" formControlName="power">
+          <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+        </select>
+        <div *ngIf="power.errors?.required" class="alert alert-warning">
+          Power is required
+        </div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="formHero.invalid" class="btn btn-default">Submit</button>
+    <button type="button" class="btn btn-default" (click)="formHero.resetForm({})">Reset</button>
+  </div>
+</form>
+<div class="submit-message" *ngIf="formHero.submitted">
+  <p>You've submitted this hero, {{heroForm.value.name}}!</p>
+  <button class="btn btn-default" (click)="formHero.resetForm({})">Add new hero</button>
+</div>
