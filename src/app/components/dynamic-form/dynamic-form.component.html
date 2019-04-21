@@ -1,8 +1,15 @@
 <div>
   <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <div *ngFor="let question of questions" class="form-row">
-      <app-dynamic-question-form [question]="question" [form]="form"></app-dynamic-question-form>
-    </div>
+    <ng-container *ngFor="let question of questions" class="form-row">
+      <label [attr.for]="question.key">{{question.label}}</label>
+      <ng-container [ngSwitch]="question.controlType">
+        <input *ngSwitchCase="'textBox'" [formControlName]="question.key" [id]="question.key" [type]="question.type" class="form-control">
+        <select *ngSwitchCase="'dropdown'" [formControlName]="question.key" [id]="question.key" class="form-control">
+          <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+        </select>
+      </ng-container>
+      <div class="alert alert-danger" *ngIf="!isValid(question.key)">{{question.label}} is required</div>
+    </ng-container>
     <div class="form-row">
       <button type="submit" [disabled]="!form.valid">Save</button>
     </div>

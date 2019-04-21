@@ -21,4 +21,8 @@ export class DynamicFormComponent implements OnInit {
   onSubmit(){
     this.payLoad = JSON.stringify(this.form.value)
   }
+
+  isValid(key){
+    return this.form.controls[key].valid
+  }
 }
